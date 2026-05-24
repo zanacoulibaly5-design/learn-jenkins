@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Github Repository') {
+            steps {
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/theshubhamgour/jenkins-tutorial.git'
+                sh 'pwd'
+            }
+        }
+        stage('Build') {
+            steps {
